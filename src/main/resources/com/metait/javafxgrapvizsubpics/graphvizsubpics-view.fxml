@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="770.0" prefWidth="1074.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="1074.0" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+      <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="556.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <tabs>
+          <Tab fx:id="tabImport" onSelectionChanged="#pressedTabImport" text="Select / Import">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="648.0" prefWidth="1074.0" spacing="5.0" AnchorPane.bottomAnchor="0.5" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="1054.0" text="1. Selected data root directory to read:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="39.0" prefWidth="1064.0" spacing="10.0">
+                                       <children>
+                                          <Button fx:id="buttonDataDir" mnemonicParsing="false" onAction="#pressedButtonDataDir" prefHeight="25.0" prefWidth="145.0" text="Select data dir" HBox.hgrow="NEVER" />
+                                          <Label prefHeight="21.0" prefWidth="101.0" text="Data directory:" HBox.hgrow="NEVER">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <TextField fx:id="textFieldDataDir" prefHeight="25.0" prefWidth="755.0" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox>
+                                 <children>
+                                    <Label prefHeight="32.0" prefWidth="1054.0" text="2. Selected some of subdirectory to read:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="39.0" prefWidth="1064.0" spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="21.0" prefWidth="186.0" text="Select subdirectory:" HBox.hgrow="NEVER">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <ComboBox fx:id="comboBoxDirs" prefHeight="25.0" prefWidth="849.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox>
+                                 <children>
+                                    <Label prefHeight="27.0" prefWidth="1054.0" text="3. Or create a new subdirectory into subdirectory combo box:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="48.0" prefWidth="1054.0" spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="21.0" prefWidth="176.0" text="Directory name to create:" HBox.hgrow="NEVER">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <TextField fx:id="textFieldCreateDir" prefHeight="25.0" prefWidth="674.0" HBox.hgrow="ALWAYS" />
+                                          <Button fx:id="buttonCreateDir" mnemonicParsing="false" onAction="#pressed_buttonCreateDir" prefHeight="25.0" prefWidth="131.0" text="Create sub dir" HBox.hgrow="NEVER" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="20.0" layoutY="178.0" spacing="5.0">
+                                 <children>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="479.0" text="4. Or import .xsd or .dot files into selected dirctory:">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="buttonSelectImport" mnemonicParsing="false" onAction="#pressed_buttonSelectImport" prefHeight="25.0" prefWidth="131.0" text="Select files" HBox.hgrow="NEVER">
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="buttonImport" layoutX="499.0" layoutY="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" text="Import files">
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="39.0" prefWidth="1064.0" spacing="10.0">
+                                       <children>
+                                          <HBox HBox.hgrow="NEVER">
+                                             <children>
+                                                <Label prefHeight="21.0" prefWidth="87.0" text="Import files:">
+                                                   <padding>
+                                                      <Insets top="5.0" />
+                                                   </padding>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <TextField fx:id="textFieldImport" prefHeight="25.0" prefWidth="674.0" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox>
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="1064.0" text="5. Read files of selected subdirectory:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="buttonReadDirFiles" mnemonicParsing="false" onAction="#pressedButtonReadDataDirFiles" prefHeight="25.0" prefWidth="230.0" text="Read files of selected directory" />
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tabPic" onSelectionChanged="#pressedTabPic" text="Generated dots">
+            <content>
+              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1102.0" prefWidth="1074.0" spacing="5.0" AnchorPane.bottomAnchor="-428.5" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox maxWidth="1.7976931348623157E308" spacing="10.0">
+                                 <children>
+                                    <CheckBox fx:id="checkBoxDotFiles" mnemonicParsing="false" prefHeight="23.0" prefWidth="90.0" text="Dot files;">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <ChoiceBox fx:id="comboBoxDotFiles" prefHeight="25.0" prefWidth="360.0" />
+                                    <Label text="Relationlevel:">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <TextField fx:id="textFieldRelLevel" prefHeight="25.0" prefWidth="43.0" />
+                                    <Button fx:id="buttonCreateMainPic" mnemonicParsing="false" onAction="#pressedButtonCreateMainPic" text="Generate main dot" />
+                                    <Button fx:id="buttonCreateSubPics" layoutX="568.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressedButtonCreateSubPic" text="Generate subpics" />
+                                    <Button fx:id="buttonCancel" layoutX="668.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressedButtonCancel" text="Cancel executon" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="34.0" prefWidth="1064.0">
+                                 <children>
+                                    <Button fx:id="buttonOpenPictureDialog" mnemonicParsing="false" onAction="#pressedButtonOpenPicture" text="Open selecticted pcture dialog" />
+                                 </children>
+                              </HBox>
+                              <SplitPane dividerPositions="0.2505567928730512, 0.7505567928730512" focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1077.0" prefWidth="900.0">
+                                 <items>
+                                    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1075.0" prefWidth="109.0">
+                                       <children>
+                                          <TreeView fx:id="treeView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="663.0" prefWidth="265.0" AnchorPane.bottomAnchor="412.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                    <VBox>
+                                       <children>
+                                          <Label fx:id="labelImaveView" prefHeight="24.0" prefWidth="519.0" />
+                                          <Slider fx:id="sliderImage" maxWidth="1.7976931348623157E308" />
+                                          <AnchorPane fx:id="anchorPaneImage" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="599.0" prefWidth="524.0" VBox.vgrow="ALWAYS" />
+                                       </children>
+                                    </VBox>
+                                    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                                       <children>
+                                          <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="653.0" prefWidth="264.0" AnchorPane.bottomAnchor="422.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Button fx:id="buttonFile" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#pressed_buttonFile" prefHeight="25.0" prefWidth="260.0" />
+                                                <Label fx:id="labelFileTime" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="28.0" prefWidth="224.0" style="&#10;" textAlignment="CENTER" wrapText="false">
+                                                   <font>
+                                                      <Font size="18.0" fx:id="x11" />
+                                                   </font>
+                                                   <textFill>
+                                                      <Color red="0.624" green="0.624" blue="0.624" fx:id="x21" />
+                                                   </textFill>
+                                                </Label>
+                                                <ListView fx:id="listViewDetalj" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="356.0" prefWidth="264.0" VBox.vgrow="ALWAYS" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </items>
+                              </SplitPane>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Open pictures">
+              <content>
+                <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="675.0" prefWidth="1074.0" spacing="10.0" AnchorPane.bottomAnchor="4.5" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox maxWidth="1.7976931348623157E308" prefHeight="28.0" prefWidth="1074.0" spacing="10.0">
+                                 <children>
+                                    <Button fx:id="buttonClosePictureDialog" mnemonicParsing="false" onAction="#pressedButtonClosePictureDialog" text="Close picture" />
+                                    <Button fx:id="buttonCenterWindow" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressed_buttonCenterWindow" text="ReShow picture window" />
+                                 </children>
+                              </HBox>
+                              <ListView fx:id="lstOpenDialogs" prefHeight="639.0" prefWidth="1074.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+  <Label fx:id="labelMsg" maxHeight="1.7976931348623157E308" maxWidth="-1.0" prefHeight="29.0" prefWidth="1072.0">
+    <font>
+      <Font size="11.0" fx:id="x3" />
+    </font>
+    <textFill>
+      <Color red="0.625" green="0.625" blue="0.625" fx:id="x4" />
+    </textFill>
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" />
+         </VBox.margin>
+  </Label>
+  </children>
+</VBox>
